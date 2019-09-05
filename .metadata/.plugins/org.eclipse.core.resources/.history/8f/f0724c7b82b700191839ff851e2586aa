@@ -1,0 +1,69 @@
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+		STUDENTS REGISTRATION FORM
+		</title>
+		<style>
+			.error{color: Red}
+		</style>
+<body>
+	<form:form action="processForm" modelAttribute="student">
+	<em>(*) fields are required. </em>
+	<br> <br>
+	First Name: <form:input path="firstName" />
+	
+	<br> <br>
+	Last Name (*) : <form:input path="lastName" />
+	<form:errors path="lastName" cssClass="error" />
+	
+	<br> <br>
+	Country : 
+	<form:select path="country">
+		<form:options items="${student.countryOptions}" />
+	</form:select>
+	<br> <br>
+	Passes: <form:input path="pass" />
+	<form:errors path="pass" cssClass="error" />
+	<br> <br>
+	
+	Course : <form:input path="Course" />
+	<form:errors path="Course" cssClass="error" />
+	
+	<br> <br>
+	
+	Favorite Language: <br>
+		c# <form:radiobutton path="favoriteLang" value="c#" />
+		JAVA <form:radiobutton path="favoriteLang" value="JAVA" />
+		PHP <form:radiobutton path="favoriteLang" value="PHP" />
+		Python <form:radiobutton path="favoriteLang" value="Python" />
+	<br> <br>
+	<!-- 
+	<form:radiobuttons path="favoriteLangs" items="${student.favoriteLangs }" />
+	 -->
+	<br> <br>
+	Operating System <br>
+	windows: <form:checkbox path="os" value="Windows" />
+	Mac OS: <form:checkbox path="os" value="Mac os" />
+	Linux: <form:checkbox path="os" value="linux" />
+	<form:errors path="os" cssClass="error" />
+	
+	<input type="submit" value="Submit"> 
+	<br><br>
+	
+	</form:form>
+</body>
+
+
+
+
+
+	
+	
+	</head>
+
+</html>
